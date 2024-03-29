@@ -8,6 +8,9 @@ const pool = new pg.Pool({
     database: PGDATABASE,
     password: PGPASSWORD,
     port: PGPORT,
+    ssl: {
+        rejectUnauthorized: false // For testing purposes, you may need to set this to false
+    }
 });
 
 pool.connect((err, client, release) => {
