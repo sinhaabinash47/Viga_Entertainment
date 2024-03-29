@@ -6,23 +6,15 @@ const pricingController = {
       if (!organization_id || !zone || !total_distance || !item_type) {
         return res.status(400).json({ error: "Missing required parameters" });
       }
-
-      // Validate organization_id is a positive integer
       if (typeof organization_id !== 'number' || organization_id <= 0 || !Number.isInteger(organization_id)) {
         return res.status(400).json({ error: "Invalid organization_id. Must be a positive integer." });
       }
-
-      // Validate zone is a non-empty string
       if (typeof zone !== 'string' || zone.trim() === '') {
         return res.status(400).json({ error: "Invalid zone. Must be a non-empty string." });
       }
-
-      // Validate total_distance is a positive number
       if (typeof total_distance !== 'number' || total_distance <= 0) {
         return res.status(400).json({ error: "Invalid total_distance. Must be a positive number." });
       }
-
-      // Validate item_type is a non-empty string
       if (typeof item_type !== 'string' || item_type.trim() === '') {
         return res.status(400).json({ error: "Invalid item_type. Must be a non-empty string." });
       }

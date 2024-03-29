@@ -10,7 +10,7 @@ const Pricing = {
           SELECT id FROM item WHERE type = $3
         )`;
       const { rows } = await pool.query(query, [organizationId, zone, itemType]);
-      return rows.length ? rows[0] : null; // Return null if no data found
+      return rows.length ? rows[0] : null; 
     } catch (error) {
       console.error("Error fetching pricing:", error);
       throw new Error("Error fetching pricing from database");
